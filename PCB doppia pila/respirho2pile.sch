@@ -13950,6 +13950,9 @@ Diode with low voltage drop</description>
 <part name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="330"/>
 <part name="C9" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="1u"/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
+<part name="R4" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="10k"/>
+<part name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="R-US_" device="R0402" package3d_urn="urn:adsk.eagle:package:23547/3" value="10k"/>
+<part name="SUPPLY4" library="SparkFun-PowerSymbols" library_urn="urn:adsk.eagle:library:530" deviceset="VDD" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -14163,6 +14166,17 @@ BUTTON</text>
 <instance part="GND8" gate="1" x="-138.176" y="63.5" smashed="yes" rot="MR0">
 <attribute name="VALUE" x="-135.636" y="60.96" size="1.778" layer="96" rot="MR0"/>
 </instance>
+<instance part="R4" gate="G$1" x="-130.81" y="165.1" smashed="yes" rot="R90">
+<attribute name="NAME" x="-127.254" y="169.6974" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-127.508" y="161.29" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="R5" gate="G$1" x="-136.398" y="164.846" smashed="yes" rot="R90">
+<attribute name="NAME" x="-132.842" y="169.4434" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="-133.096" y="161.036" size="1.778" layer="96" rot="R90"/>
+</instance>
+<instance part="SUPPLY4" gate="VDD" x="-133.604" y="173.482" smashed="yes">
+<attribute name="VALUE" x="-131.064" y="173.736" size="1.778" layer="96" align="bottom-center"/>
+</instance>
 </instances>
 <busses>
 </busses>
@@ -14368,6 +14382,17 @@ BUTTON</text>
 <wire x1="-114.808" y1="103.632" x2="-98.298" y2="103.632" width="0.1524" layer="91"/>
 <junction x="-98.298" y="103.632"/>
 <pinref part="C5" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="-136.398" y1="169.926" x2="-136.398" y2="172.212" width="0.1524" layer="91"/>
+<wire x1="-136.398" y1="172.212" x2="-133.604" y2="172.212" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="-133.604" y1="172.212" x2="-130.81" y2="172.212" width="0.1524" layer="91"/>
+<wire x1="-130.81" y1="172.212" x2="-130.81" y2="170.18" width="0.1524" layer="91"/>
+<pinref part="SUPPLY4" gate="VDD" pin="VDD"/>
+<wire x1="-133.604" y1="173.482" x2="-133.604" y2="172.212" width="0.1524" layer="91"/>
+<junction x="-133.604" y="172.212"/>
 </segment>
 </net>
 <net name="P0.24" class="0">
@@ -14617,8 +14642,12 @@ BUTTON</text>
 <net name="SCL" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="SCL/SCLK"/>
-<wire x1="-119.38" y1="158.75" x2="-138.176" y2="158.75" width="0.1524" layer="91"/>
+<wire x1="-119.38" y1="158.75" x2="-130.81" y2="158.75" width="0.1524" layer="91"/>
 <label x="-138.176" y="158.75" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R4" gate="G$1" pin="1"/>
+<wire x1="-130.81" y1="158.75" x2="-138.176" y2="158.75" width="0.1524" layer="91"/>
+<wire x1="-130.81" y1="160.02" x2="-130.81" y2="158.75" width="0.1524" layer="91"/>
+<junction x="-130.81" y="158.75"/>
 </segment>
 <segment>
 <pinref part="MDBT42Q1" gate="G$1" pin="P0.13"/>
@@ -14629,8 +14658,12 @@ BUTTON</text>
 <net name="SDA" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="SDA/SDI"/>
-<wire x1="-149.86" y1="156.21" x2="-119.38" y2="156.21" width="0.1524" layer="91"/>
+<wire x1="-149.86" y1="156.21" x2="-136.398" y2="156.21" width="0.1524" layer="91"/>
 <label x="-149.86" y="156.21" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+<wire x1="-136.398" y1="156.21" x2="-119.38" y2="156.21" width="0.1524" layer="91"/>
+<wire x1="-136.398" y1="159.766" x2="-136.398" y2="156.21" width="0.1524" layer="91"/>
+<junction x="-136.398" y="156.21"/>
 </segment>
 <segment>
 <pinref part="MDBT42Q1" gate="G$1" pin="P0.12"/>
